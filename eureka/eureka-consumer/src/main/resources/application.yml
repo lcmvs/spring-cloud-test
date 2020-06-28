@@ -16,5 +16,16 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:7000/eureka/
+  instance:
+    metadata-map:
+      cluster: eureka-consumer
 
+feign:
+  hystrix:
+    enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
